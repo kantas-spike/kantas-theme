@@ -1,0 +1,6 @@
+/* themes/assets/css/theme.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* import themes/assets/css/custom.css for custom style */
+@import "custom.css";
