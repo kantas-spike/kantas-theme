@@ -46,7 +46,8 @@ theme = "kantas"
 
 ~~~shell
 cd ${hugoのサイト}
-npm install
+npm init -f
+npm install postcss-cli
 ~~~
 
 #### セクションの作成
@@ -55,6 +56,7 @@ npm install
 適宜、インデックスページの本文を記載してください。
 
 ~~~shell
+hugo new -k undraft _index.md
 hugo new -k undraft blog/_index.md
 hugo new -k undraft til/_index.md
 hugo new -k undraft mytools/_index.md
