@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h3 class="page_h3 my-4 mx-4"><i class="fa-solid fa-tag"></i> {{ .Title }} <span class="text-sm">(<a class="normal_link" href="{{ with .Site.GetPage "/tags" }}{{ .Permalink }}{{ end }}">他のタグ..</a>)</span></h2>
+
+<section class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 my-4 mx-4">
+    {{ range .Paginator.Pages }}
+        {{ partial "article_summary.html" . }}
+    {{ end }}
+</section>
+
+{{ end }}

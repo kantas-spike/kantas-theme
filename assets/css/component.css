@@ -17,3 +17,32 @@
 .normal_ul {
     @apply list-outside list-disc ml-6 mt-2 mb-4;
 }
+
+.pagination {
+    @apply flex justify-center;
+
+    .page-item {
+        @apply p-1 w-10 text-center border border-gray-300 shadow-gray-300 shadow;
+
+        &.active {
+            @apply bg-primary;
+            & > .page-link {
+                @apply  text-gray-50
+            }
+        }
+
+        &.disabled {
+            & > .page-link {
+                @apply text-gray-400 cursor-not-allowed;
+            }
+        }
+    }
+
+    .page-item:first-child {
+        @apply rounded-l-md;
+    }
+
+    .page-item:last-child {
+        @apply rounded-r-md;
+    }
+}

@@ -1,3 +1,14 @@
-<footer class="bg-primary-dark text-center text-on-primary-dark fixed bottom-0 w-full">
-    <small>{{ .Site.Copyright }}</small>
+<footer class="bg-primary-dark text-center text-on-primary-dark fixed bottom-0 w-full h-8">
+    <div class="container mx-auto grid grid-cols-3">
+        <div class="col-start-2">
+            <div class="text-sm pt-2">{{ .Site.Copyright }}</div>
+        </div>
+        <div class="flex justify-end gap-2 mr-2">
+            {{ if .Site.Data.socialmedia.accounts }}
+                {{ range .Site.Data.socialmedia.accounts }}
+            <a class="text-2xl" href="{{ .url }}"><i class="fa-brands {{ .icon }}"></i></a>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
 </footer>

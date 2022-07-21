@@ -2,6 +2,20 @@
 
 プログラミング学習記録用の Hugo Theme です。
 
+## 特徴
+
+- データファイルからMyTools、IHCセクション用のGitHubのリポジトリ情報を表示
+- Blogだけでなく、TILセクションを用意
+- codeblockのフックとして[mermaid.js](https://mermaid-js.github.io/mermaid/#/)に対応
+
+  <pre>
+    ~~~mermaid
+    flowchart LR
+    a-->b
+    b-->caa
+    ~~~
+  </pre>
+
 ## インストール
 
 本テーマは、`git`の`submodule`としてインストールします。
@@ -24,7 +38,9 @@ theme = "kantas"
 
 セットアップ手順に説明します。
 
-### サイト側セットアップ： パッケージのインストール
+### サイト側セットアップ
+
+#### パッケージのインストール
 
 `Hugo`のサイトのディレクトリで以下を実行します。
 
@@ -32,6 +48,25 @@ theme = "kantas"
 cd ${hugoのサイト}
 npm install
 ~~~
+
+#### セクションの作成
+
+以下を実行し、セクションのインデックスページを作成してください。
+適宜、インデックスページの本文を記載してください。
+
+~~~shell
+hugo new -k undraft blog/_index.md
+hugo new -k undraft til/_index.md
+hugo new -k undraft mytools/_index.md
+hugo new -k undraft ihc/_index.md
+~~~
+
+#### データファイルの作成
+
+[データファイル](#データファイル)に従い、以下のファイルを作成してください。
+
+- data/socialmedia.json
+- data/projects.json
 
 ### テーマ側セットアップ： パッケージのインストール
 
@@ -48,14 +83,14 @@ npm install
 
 |データファイルパス| 説明 |
 |:---|:---|
-|`${hugoのサイト}/data/socialmedia.json`| `Contact`ページに表示する連絡先を定義します。 |
+|`${hugoのサイト}/data/socialmedia.json`| フッタに表示する連絡先を定義します。 |
 |`${hugoのサイト}/data/projects.json`| `My Tools`および`IHC`のページに表示するプロジェクトの情報を表示します。 |
 
 各データファイルの定義方法を説明します。
 
 ### socialmedia.json
 
-`Contact`ページに表示する連絡先を定義したJSONファイルです。
+フッタに表示する連絡先を定義したJSONファイルです。
 
 ~~~json
 {
