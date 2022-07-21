@@ -6,12 +6,6 @@
   weight = 10
 
 [[menu.main]]
-  identifier = 'Contact'
-  title = 'Contact'
-  url = '/contact'
-  weight = 100
-
-[[menu.main]]
   identifier = 'Blog'
   title = 'Blog'
   url = '/blog'
