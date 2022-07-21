@@ -6,7 +6,7 @@
 {{ with .Site.Params.articleSections }}
     {{ $articleSections = . }}
 {{ end }}
-{{ range (.Paginate (where .Site.RegularPages "Type" "in" $articleSections)).Pages }}
+{{ range (where .Site.RegularPages "Type" "in" $articleSections) }}
     {{ partial "article_summary.html" . }}
 {{ end }}
 </div>
