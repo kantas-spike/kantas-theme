@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="article border border-primary mx-4 mb-4 p-4">{{ .Content }}</div>
+<div class="grid grid-cols-3 gap-2 my-2 mx-4">{{/*  最近のプロジェクト 3つぐらい?  */}}
+{{ range .Site.Data.projects.my_tools }}
+    {{ partial "project_summary.html" . }}
+{{ end }}
+</div>
+<div class="grid grid-cols-3 gap-2 my-2 mx-4">{{/*  最近のプロジェクト 3つぐらい?  */}}
+    {{ range .Site.Data.projects.IHC }}
+        {{ partial "project_summary.html" . }}
+    {{ end }}
+    </div>
+<div class="grid grid-cols-2 gap-2 my-2 mx-4">{{/*  記事サマリー一覧?  */}}
+{{ $articleSections := slice "blog" "til" }}
+{{ with .Site.Params.articleSections }}
+    {{ $articleSections = . }}
+{{ end }}
+{{ range (.Paginate (where .Site.RegularPages "Type" "in" $articleSections)).Pages }}
+    {{ partial "article_summary.html" . }}
+{{ end }}
+
+</div>
+{{ end }}
