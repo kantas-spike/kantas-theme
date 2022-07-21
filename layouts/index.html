@@ -1,16 +1,7 @@
 {{ define "main" }}
-<div class="article border border-primary mx-4 mb-4 p-4">{{ .Content }}</div>
-<div class="grid grid-cols-3 gap-2 my-2 mx-4">{{/*  最近のプロジェクト 3つぐらい?  */}}
-{{ range .Site.Data.projects.my_tools }}
-    {{ partial "project_summary.html" . }}
-{{ end }}
-</div>
-<div class="grid grid-cols-3 gap-2 my-2 mx-4">{{/*  最近のプロジェクト 3つぐらい?  */}}
-    {{ range .Site.Data.projects.IHC }}
-        {{ partial "project_summary.html" . }}
-    {{ end }}
-    </div>
-<div class="grid grid-cols-2 gap-2 my-2 mx-4">{{/*  記事サマリー一覧?  */}}
+{{ partial "page_summary.html" . }}
+<h3 class="mx-4 mt-6 page_h3"><i class="fa-solid fa-square-pen"></i> 最近の学習記録</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4">
 {{ $articleSections := slice "blog" "til" }}
 {{ with .Site.Params.articleSections }}
     {{ $articleSections = . }}
@@ -18,6 +9,17 @@
 {{ range (.Paginate (where .Site.RegularPages "Type" "in" $articleSections)).Pages }}
     {{ partial "article_summary.html" . }}
 {{ end }}
-
+</div>
+<h3 class="mx-4 mt-6 page_h3"><i class="fa-solid fa-square-parking"></i> 最近のプロジェクト</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4">
+{{ range (first 6 .Site.Data.projects.my_tools) }}
+    {{ partial "project_summary.html" . }}
+{{ end }}
+</div>
+<h3 class="mx-4 mt-6 page_h3"><i class="fa-solid fa-arrow-rotate-right"></i> 最近のインクリメンタルハッキングサイクル</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4">
+    {{ range (first 6 .Site.Data.projects.IHC) }}
+        {{ partial "project_summary.html" . }}
+    {{ end }}
 </div>
 {{ end }}

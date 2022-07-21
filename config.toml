@@ -21,7 +21,7 @@
   identifier = 'TIL'
   title = 'TIL'
   url = '/til'
-  weight = 50
+  weight = 32
 
 [[menu.main]]
     identifier = 'MyTools'
