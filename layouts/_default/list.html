@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ partial "page_summary.html" . }}
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-6 my-4 mx-4">
+    {{ range (.Paginate (where .Site.RegularPages "Section" .CurrentSection.Section)).Pages }}
+        {{ partial "article_summary.html" . }}
+    {{ end }}
+
+    </div>
+{{ end }}
