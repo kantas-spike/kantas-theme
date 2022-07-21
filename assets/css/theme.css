@@ -3,4 +3,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 /* import themes/assets/css/custom.css for custom style */
-@import "custom.css";
+@import "component.css";
+
+@import "article.css";

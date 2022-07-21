@@ -1,0 +1,6 @@
+/* HTMLに変換された markdown 文書用のスタイル */
+.article {
+    ul {
+        @apply list-inside list-disc ml-2 mt-2 mb-4;
+    }
+}

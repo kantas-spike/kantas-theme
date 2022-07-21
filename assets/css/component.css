@@ -1,0 +1,7 @@
+.tag_link {
+    @apply text-primary underline underline-offset-4 decoration-dotted hover:font-bold;
+}
+
+.normal_link {
+    @apply text-primary underline underline-offset-4 hover:font-bold;
+}
