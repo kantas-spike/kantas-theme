@@ -1,9 +1,11 @@
 {{ define "main" }}
 {{ partial "page_summary.html" . }}
 
+{{ if .Site.Data.projects.mytools }}
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-6 mb-4 mx-4">
     {{ range .Site.Data.projects.mytools }}
         {{ partial "project_summary.html" . }}
     {{ end }}
 </div>
+{{ end }}
 {{ end }}
