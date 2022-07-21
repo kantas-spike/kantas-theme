@@ -1,0 +1,14 @@
+/* HTMLに変換された markdown 文書用のスタイル */
+.article {
+    ul {
+        @apply normal_ul;
+    }
+
+    p {
+        @apply my-2;
+    }
+
+    a {
+        @apply tag_link;
+    }
+}

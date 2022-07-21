@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "page_summary.html" . }}
+
+{{ if .Site.Data.socialmedia.accounts }}
+<div class="flex justify-center gap-3 m-4">
+    {{ range .Site.Data.socialmedia.accounts }}
+        <a class="text-gray-700 text-6xl" href="{{ .url }}"><i class="fa-brands {{ .icon }}"></i></a>
+    {{ end }}
+    </div>
+{{ end }}
+{{ end }}

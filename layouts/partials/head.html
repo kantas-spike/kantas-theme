@@ -1,0 +1,12 @@
+<head>
+    <title>kanta's spike</title>
+    {{- $css := resources.Get "css/theme.css" -}}
+    {{- if hugo.IsProduction }}
+        {{- $css = $css | resources.PostCSS }}
+    {{- else }}
+        {{- $css = $css | resources.ExecuteAsTemplate (printf "css/theme.dev.%v.css" now.Unix) .
+            | resources.PostCSS }}
+    {{- end }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>

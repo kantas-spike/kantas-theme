@@ -1,0 +1,19 @@
+.tag_link {
+    @apply text-primary underline underline-offset-4 decoration-dotted hover:font-bold;
+}
+
+.normal_link {
+    @apply text-primary underline underline-offset-4 hover:font-bold;
+}
+
+.page_h3 {
+    @apply text-xl font-bold;
+}
+
+.area_border {
+    @apply border border-gray-300 shadow-gray-300 shadow rounded-md;
+}
+
+.normal_ul {
+    @apply list-outside list-disc ml-6 mt-2 mb-4;
+}

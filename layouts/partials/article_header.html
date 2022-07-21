@@ -1,0 +1,19 @@
+{{ $icon_name := "fa-file-lines" }}
+{{ if eq .CurrentSection.Section "til" }}
+{{ $icon_name = "fa-note-sticky" }}
+{{ end }}
+<div class="mb-4">
+    <h3 class="border-b-2 border-primary text-primary-dark text-xl font-bold"><i class="fa-solid {{ $icon_name }}"></i> <a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+    <div class="flex justify-between mt-1 mx-2">
+        <div>
+            <ul class="flex gap-2 justify-end">
+            {{ range (.GetTerms "tags") }}
+            <li><a class="tag_link text-sm" href="{{ .Permalink }}">#{{ .LinkTitle }}</a></li>
+            {{ end }}
+            </ul>
+        </div>
+        <div>
+            <div class="text-right text-sm font-bold">{{ .Date | time.Format "2006/01/02" }}</div>
+        </div>
+    </div>
+</div>

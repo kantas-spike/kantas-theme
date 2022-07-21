@@ -1,0 +1,36 @@
+[menu]
+[[menu.main]]
+  identifier = 'Home'
+  title = 'Home'
+  url = '/'
+  weight = 10
+
+[[menu.main]]
+  identifier = 'Contact'
+  title = 'Contact'
+  url = '/contact'
+  weight = 100
+
+[[menu.main]]
+  identifier = 'Blog'
+  title = 'Blog'
+  url = '/blog'
+  weight = 30
+
+[[menu.main]]
+  identifier = 'TIL'
+  title = 'TIL'
+  url = '/til'
+  weight = 32
+
+[[menu.main]]
+    identifier = 'MyTools'
+    title = 'My Tools'
+    url = '/mytools'
+    weight = 35
+
+[[menu.main]]
+  identifier = 'IHC'
+  title = 'IHC'
+  url = '/ihc'
+  weight = 40
