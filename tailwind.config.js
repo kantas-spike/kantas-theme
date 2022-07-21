@@ -1,6 +1,9 @@
+const path = require('path')
+const theme_dir = path.basename(__dirname)
+
 const colors = require('tailwindcss/colors')
 module.exports = {
-  content: ["./layouts/**/*.html", "./themes/kantas/layouts/**/*.html", "./content/**/*.md"],
+  content: ["./layouts/**/*.html", `./themes/${theme_dir}/layouts/**/*.html`, "./content/**/*.md"],
   theme: {
     extend: {
       colors: {
