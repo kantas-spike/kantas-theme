@@ -2,6 +2,20 @@
 
 プログラミング学習記録用の Hugo Theme です。
 
+## 特徴
+
+- データファイルからGitHubのリポジトリ情報を表示
+- Blogだけでなく、TILセクションを用意
+- codeblockのフックとして[mermaid.js](https://mermaid-js.github.io/mermaid/#/)に対応
+
+   <pre>
+    ~~~mermaid
+    flowchart LR
+    a-->b
+    b-->caa
+    ~~~
+  </pre>
+
 ## インストール
 
 本テーマは、`git`の`submodule`としてインストールします。
