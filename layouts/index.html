@@ -12,7 +12,7 @@
 </div>
 <h3 class="mx-4 mt-6 page_h3"><i class="fa-solid fa-square-parking"></i> 最近のプロジェクト</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4">
-{{ range (first 6 .Site.Data.projects.my_tools) }}
+{{ range (first 6 .Site.Data.projects.mytools) }}
     {{ partial "project_summary.html" . }}
 {{ end }}
 </div>
