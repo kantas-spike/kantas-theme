@@ -16,6 +16,8 @@
     ~~~
   </pre>
 
+- シンタックスハイライトCSS(デフォルト: solarized-dark)に対応
+
 ## インストール
 
 本テーマは、`git`の`submodule`としてインストールします。
@@ -69,6 +71,17 @@ hugo new -k undraft ihc/_index.md
 
 - data/socialmedia.json
 - data/projects.json
+
+#### シンタックスハイライトの設定
+
+[hugo gen chromastyles](https://gohugo.io/commands/hugo_gen_chromastyles/)で生成したcss(solarized-dark)がテーマに格納されています。
+
+これを有効にするため、**サイト**の`config.toml`に以下を追加してください。
+
+~~~toml
+[markup.highlight]
+  noClasses = false
+~~~
 
 ### テーマ側セットアップ： パッケージのインストール
 
