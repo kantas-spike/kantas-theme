@@ -6,7 +6,7 @@
         <div class="flex justify-end gap-2 mr-2">
             {{ if .Site.Data.socialmedia.accounts }}
                 {{ range .Site.Data.socialmedia.accounts }}
-            <a class="text-2xl" href="{{ .url }}"><i class="fa-brands {{ .icon }}"></i></a>
+            <a title="{{ .name }}" class="text-2xl" href="{{ .url }}"><i class="{{ .icon }}"></i></a>
                 {{ end }}
             {{ end }}
         </div>

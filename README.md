@@ -100,17 +100,17 @@ npm install
     [
         {
             "name": "Twitter",
-            "icon": "fa-twitter-square",
+            "icon": "fa-brands fa-twitter-square",
             "url": "https://twitter.com/実際のID"
         },
         {
             "name": "Youtube",
-            "icon": "fa-youtube-square",
+            "icon": "fa-brands fa-youtube-square",
             "url": "https://www.youtube.com/channel/実際のID"
         },
         {
             "name": "GitHub",
-            "icon": "fa-github-square",
+            "icon": "fa-brands fa-github-square",
             "url": "https://github.com/実際のID"
         }
     ]
