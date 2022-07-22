@@ -25,7 +25,7 @@
     }
 
     p > code, li > code {
-        @apply bg-gray-300 font-mono px-1;
+        @apply bg-gray-300 font-mono px-0.5 mx-0.5;
     }
 
     .highlight {
