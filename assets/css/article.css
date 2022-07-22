@@ -1,14 +1,38 @@
 /* HTMLに変換された markdown 文書用のスタイル */
 .article {
+    h3 {
+        @apply border-b-2 border-gray-600  text-lg font-bold mt-6 mb-3 ;
+    }
+
+    h4 {
+        @apply border-b border-dotted border-gray-600 font-bold mt-6 mb-3 ;
+    }
+
     ul {
         @apply normal_ul;
     }
 
+    ol {
+        @apply normal_ol;
+    }
+
     p {
-        @apply my-2;
+        @apply my-4;
     }
 
     a {
         @apply tag_link;
+    }
+
+    p > code, li > code {
+        @apply bg-gray-300 font-mono px-1;
+    }
+
+    .highlight {
+        @apply mx-2 my-4;
+
+        & > pre {
+            @apply py-2 px-3;
+        }
     }
 }
