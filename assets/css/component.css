@@ -50,3 +50,37 @@
         @apply rounded-r-md;
     }
 }
+
+.burger_label {
+    @apply  block stroke-on-primary border-2 border-on-primary rounded p-1 w-12 md:hidden absolute top-12 right-3;
+    svg {
+        @apply stroke-0 fill-on-primary;
+    }
+}
+
+#burger_cbx:checked ~ .burger_label {
+    @apply hidden md:hidden;
+}
+
+.close_label {
+    @apply hidden stroke-on-primary stroke-1 border-2 border-on-primary rounded-t p-1 w-12 md:hidden absolute top-12 right-3;
+    svg {
+        @apply stroke-0 fill-on-primary;
+    }
+}
+
+#burger_cbx:checked  ~ .close_label {
+    @apply block md:hidden;
+}
+
+#burger_cbx {
+    @apply hidden;
+}
+
+.nav_area {
+    @apply hidden md:block;
+}
+
+#burger_cbx:checked  ~ .nav_area {
+    @apply block absolute w-56 right-3 top-24 md:block border-2 md:border-0 border-on-primary rounded rounded-tr-none;
+}
