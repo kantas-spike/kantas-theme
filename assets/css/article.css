@@ -35,4 +35,18 @@
             @apply py-2 px-3;
         }
     }
+
+    .rawhtml {
+        table {
+            @apply border-collapse border-spacing-2 border border-primary-light;
+
+            th {
+                @apply bg-primary text-on-primary;
+            }
+
+            th, td {
+                @apply border border-primary-light px-2;
+            }
+        }
+    }
 }
