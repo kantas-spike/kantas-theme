@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg version="1.1" viewBox="0 0 12.7 12.7" fill="transparent" xmlns="http://www.w3.org/2000/svg">
+ <g transform="translate(.26458)">
+  <path d="m0.79375 11.642v-10.583h4.2333v4.4979h-4.2333"/>
+  <path d="m0.79375 3.175h4.2333"/>
+ </g>
+ <g transform="matrix(-1 0 0 1 12.435 0)">
+  <path d="m2.1167 10.848-1.3229 0.79375-3.4e-7 -10.583h4.2333v4.4979h-4.2333"/>
+  <path d="m0.79375 3.175h4.2333"/>
+ </g>
+ <g>
+  <path d="m3.7042 7.4083h5.2917"/>
+  <path d="m6.8792 6.35v4.7625l-1.0583-0.79375"/>
+  <path d="m6.8792 7.4083-1.3229 1.8521-1.5875 0.79375"/>
+ </g>
+</svg>
