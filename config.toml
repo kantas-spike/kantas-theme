@@ -28,3 +28,11 @@
   title = 'IHC'
   url = '/ihc'
   weight = 40
+
+[params.home]
+  maxArticles = 6
+  maxMyTools = 6
+  maxIHC = 3
+
+[params.list]
+  paginate = 6

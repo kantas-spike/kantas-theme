@@ -6,14 +6,14 @@
 {{ with .Site.Params.articleSections }}
     {{ $articleSections = . }}
 {{ end }}
-{{ range (where .Site.RegularPages "Type" "in" $articleSections) }}
+{{ range (first .Site.Params.home.maxArticles (where .Site.RegularPages "Type" "in" $articleSections)) }}
     {{ partial "article_summary.html" . }}
 {{ end }}
 </div>
 {{ if .Site.Data.projects.mytools }}
 <h3 class="mx-4 mt-6 page_h3"><i class="fa-solid fa-square-parking"></i> 最近のプロジェクト</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4">
-{{ range (first 6 .Site.Data.projects.mytools) }}
+{{ range (first .Site.Params.home.maxMyTools .Site.Data.projects.mytools) }}
     {{ partial "project_summary.html" . }}
 {{ end }}
 </div>
@@ -22,7 +22,7 @@
 {{ if .Site.Data.projects.IHC }}
 <h3 class="mx-4 mt-6 page_h3"><i class="fa-solid fa-arrow-rotate-right"></i> 最近のインクリメンタルハッキングサイクル</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4">
-    {{ range (first 6 .Site.Data.projects.IHC) }}
+    {{ range (first .Site.Params.home.maxIHC .Site.Data.projects.IHC) }}
         {{ partial "project_summary.html" . }}
     {{ end }}
 </div>
