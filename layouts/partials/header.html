@@ -3,10 +3,10 @@
 </header>
 <input type="checkbox" name="burger_cbx" id="burger_cbx">
 <label for="burger_cbx" class="burger_label">
-    <span class="burger_icon">{{ readFile "static/img/burger_icon.svg" | safeHTML }}</span>
+    <span class="burger_icon">{{ partial "icons/burger_icon.svg" . }}</span>
 </label>
 <label for="burger_cbx" class="close_label">
-    <span class="close_icon">{{ readFile "static/img/close_icon.svg" | safeHTML }}</span>
+    <span class="close_icon">{{ partial "icons/close_icon.svg" . }}</span>
 </label>
 <div class="nav_area">
     <nav class="container mx-auto bg-primary text-on-primary text-center flex flex-col md:flex-row justify-start">
