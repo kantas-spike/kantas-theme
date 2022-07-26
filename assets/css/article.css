@@ -24,7 +24,7 @@
         @apply tag_link;
     }
 
-    p > code, li > code {
+    p > code, li > code, td > code {
         @apply bg-gray-300 font-mono px-0.5 mx-0.5;
     }
 
