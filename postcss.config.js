@@ -6,7 +6,7 @@ module.exports = {
       path: ['assets/css', 'node_modules'],
     },
     'tailwindcss/nesting': {},
-    tailwindcss: {...tailwind_config},
+    tailwindcss: tailwind_config,
     autoprefixer: {},
   }
 }
