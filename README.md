@@ -17,6 +17,15 @@
   </pre>
 
 - シンタックスハイライトCSS(デフォルト: solarized-dark)に対応
+- 数式記述のため、codeblockのフックとして[MathJax](https://www.mathjax.org/)に対応
+
+  <pre>
+   ~~~mathjax
+   \[
+      a \x \cos\theta - b \x \sin\theta
+   \]
+   ~~~
+  </pre>
 
 ## インストール
 
