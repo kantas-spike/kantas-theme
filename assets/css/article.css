@@ -8,6 +8,10 @@
         @apply border-b border-dotted border-gray-600 font-bold mt-6 mb-3 ;
     }
 
+    h5 {
+        @apply border-b border-l-8 border-gray-300 pl-2 mt-6 mb-3 ;
+    }
+
     ul {
         @apply normal_ul;
     }
