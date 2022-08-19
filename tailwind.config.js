@@ -8,16 +8,16 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#01579b',
-          dark: '#002f6c',
-          light: '#4f83cc',
+          DEFAULT: '#32569a',
+          dark: '#192b4d',
+          light: '#d8e2f3',
         },
         secondary: {
-          DEFAULT: '#26c6da',
-          dark: '#0095a8',
-          light: '#6ff9ff',
+          DEFAULT: '#8b9a32',
+          dark: '#454d19',
+          light: '#f3e9d8',
         },
-        accent: {
+        site_title: {
             DEFAULT: "#f5b748",
             dark: "#b88936",
             light: "#f5cb7f",
@@ -26,15 +26,15 @@ module.exports = {
           primary: {
             DEFAULT: '#ffffff',
             dark: '#ffffff',
-            light: '#000000',
+            light: '#0c1627',
           },
           secondary: {
-            DEFAULT: '#000000',
-            dark: '#000000',
-            light: '#000000',
+            DEFAULT: '#ffffff',
+            dark: '#ffffff',
+            light: '#23270c',
           },
         },
-        background: colors.slate['300'],
+        background: colors.gray['300'],
         surface: colors.gray['100'],
         error: colors.pink['700'],
       }

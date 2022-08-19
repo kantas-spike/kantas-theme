@@ -23,15 +23,15 @@
 }
 
 .pagination {
-    @apply flex justify-center;
+    @apply flex justify-center text-secondary-dark;
 
     .page-item {
         @apply p-1 w-10 text-center border border-gray-300 shadow-gray-300 shadow;
 
         &.active {
-            @apply bg-primary;
+            @apply bg-secondary;
             & > .page-link {
-                @apply  text-gray-50
+                @apply  text-on-secondary
             }
         }
 

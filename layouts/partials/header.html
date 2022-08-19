@@ -13,7 +13,7 @@
         {{- $currentPage := . -}}
         {{- range sort .Site.Menus.main "Weight" -}}
             {{- if (or (eq $currentPage.RelPermalink .URL) (and (ne .Identifier "Home") (hasPrefix $currentPage.RelPermalink .URL)))  }}
-            <a href="{{ .URL }}" class="flex-1 text-center no-underline bg-primary-light text-on-primary font-extrabold py-2">{{ .Title }}</a>
+            <a href="{{ .URL }}" class="box-border flex-1 text-center no-underline bg-primary-light text-on-primary-light font-extrabold py-2">{{ .Title }}</a>
             {{- else }}
             <a href="{{ .URL }}" class="flex-1 text-center no-underline text-on-primary py-2 hover:font-bold">{{ .Title }}</a>
             {{- end -}}
