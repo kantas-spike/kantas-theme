@@ -40,6 +40,10 @@
         }
     }
 
+    hr {
+        @apply my-8 border-primary-dark;
+    }
+
     &, .rawhtml {
         table {
             @apply border-collapse border-spacing-2 border border-primary-light;
