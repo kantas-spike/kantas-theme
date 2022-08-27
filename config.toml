@@ -29,6 +29,12 @@
   url = '/ihc'
   weight = 40
 
+[[menu.main]]
+  identifier = 'Tags'
+  title = 'Tags'
+  url = '/tags'
+  weight = 45
+
 [params.home]
   maxArticles = 6
   maxMyTools = 6

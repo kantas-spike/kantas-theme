@@ -3,7 +3,7 @@ const theme_dir = path.basename(__dirname)
 
 const colors = require('tailwindcss/colors')
 module.exports = {
-  content: ["./layouts/**/*.html", `./themes/${theme_dir}/layouts/**/*.html`, "./content/**/*.md"],
+  content: ["./layouts/**/*.html", `./themes/${theme_dir}/layouts/**/*.html`, "./content/**/*.md", `./themes/${theme_dir}/assets/**/*.{js,css}`],
   theme: {
     extend: {
       colors: {
