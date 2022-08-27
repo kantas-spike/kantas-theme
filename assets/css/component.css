@@ -84,3 +84,7 @@
 #burger_cbx:checked  ~ .nav_area {
     @apply block absolute w-56 right-3 top-24 md:block border-2 md:border-0 border-on-primary rounded rounded-tr-none;
 }
+
+.button-secondary {
+    @apply bg-secondary-light text-on-secondary-light border-secondary-dark border-2 rounded-md px-4 py-2 shadow shadow-gray-500 hover:bg-secondary-light hover:text-on-secondary-light hover:font-bold active:bg-secondary-dark active:text-on-secondary-dark active:shadow-lg active:shadow-gray-500;
+}

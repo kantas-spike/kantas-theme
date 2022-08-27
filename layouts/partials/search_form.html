@@ -1,0 +1,126 @@
+<script src="https://unpkg.com/vue@next"></script>
+<script src="//unpkg.com/lunr@2.3.6/lunr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.9.0/lunr.stemmer.support.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.9.0/tinyseg.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.9.0/lunr.ja.js"></script>
+<script src="//unpkg.com/axios@0.19.0/dist/axios.js"></script>
+<script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
+
+<script type="text/x-template" id="modal-frame">
+    <a class="text-center no-underline text-on-primary py-2 font-normal cursor-pointer hover:font-bold" v-on:click="open"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <teleport to="body">
+        <div v-if="modalOpen" class="fixed top-0 right-0 bottom-0 left-0 bg-black/70 flex items-center flex-col content-center" @click.self="modalOpen = false">
+            <div class="md:mt-36 mt-10">
+                <slot />
+            </div>
+        </div>
+    </teleport>
+</script>
+
+<script type="text/x-template" id="search-panel">
+    <div class="flex flex-col items-center border border-secondary-dark md:w-[700px] w-80 rounded bg-secondary-light text-secondary-dark mx-auto">
+        <div class="flex items-center justify-center m-4">
+            <div><i class="fa-solid fa-magnifying-glass text-3xl mr-2"></i></div>
+            <input type="text" v-on:input="handleInput" v-on:keyup.enter="handleInput" class="border border-secondary-dark
+            text-sm rounded-lg focus:ring-secondary-light focus:border-secondary-light block md:w-96 w-56 p-2.5" placeholder="Search this blog" required>
+        </div>
+        <div class="flex flex-col items-start mb-2 overflow-y-auto h-[440px] md:h-[540px]">
+            <div class="md:p-2 md:m-2 mb-4 px-4"  v-for="result in searchResults">
+                <a :href="result.href">[[result.title]]</a>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" id="search-app">
+    <modal-frame v-on:opened="dialogOpened">
+        <search-panel v-on:update="keywordUpdated" :searchResults="results" />
+    </modal-frame>
+</script>
+
+<script>
+    const searchPanel = {
+        template: '#search-panel',
+        data() {
+            return {
+            }
+        },
+        props: ['searchResults'],
+        emits: ['update'],
+        methods: {
+            handleInput: _.debounce(function(e) {
+                const val = e.target.value
+                console.log(val)
+                this.$emit('update', val)
+            }, 500)
+        }
+    }
+
+    const modalFrame = {
+        template: '#modal-frame',
+        data() {
+            return {
+                modalOpen: false
+            }
+        },
+        emits: ['opened'],
+        methods: {
+            open: function() {
+                this.modalOpen = true
+                this.$emit('opened')
+            }
+        }
+    }
+
+    const searchInfo = {
+        searchData: {},
+        searchIndex: {}
+    }
+
+    // app作成
+    const app = Vue.createApp({
+        template: '#search-app',
+        components: {
+            'modal-frame': modalFrame,
+            'search-panel': searchPanel,
+        },
+        data() {
+            return {
+                results: []
+            }
+        },
+        methods: {
+            keywordUpdated: function(keyword) {
+                console.log(`updated: ${keyword}`)
+                if (keyword.trim().length == 0) {
+                    this.results = []
+                } else {
+                    const list = searchInfo.searchIndex.search(keyword).map(entry => {
+                        console.log(entry)
+                        const obj = searchInfo.searchData.results.filter(d => entry.ref == d.href)[0]
+                        return { 'href': obj.href, 'title': obj.title }
+                    })
+                    this.results = list
+                }
+            },
+            dialogOpened: function() {
+                axios.get('/portfolio/search/index.json')
+                    .then(res => {
+                        searchInfo.searchData = res.data
+                        searchInfo.searchIndex = lunr(function() {
+                            this.ref('href')
+                            this.field('title')
+                            this.use(lunr.ja)
+                            searchInfo.searchData.results.forEach(e => {
+                                this.add(e);
+                            })
+                        })
+                    })
+            }
+        }
+    })
+    // app設定
+    app.config.compilerOptions.delimiters = [ "[[", "]]" ]
+    // htmlにマウント
+    app.mount('#search_menu')
+</script>
