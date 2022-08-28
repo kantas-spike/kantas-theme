@@ -7,7 +7,7 @@
 <script src="https://unpkg.com/lodash@4.17.20/lodash.min.js"></script>
 
 <script type="text/x-template" id="modal-frame">
-    <a class="text-center no-underline text-on-primary py-2 font-normal cursor-pointer hover:font-bold" v-on:click="open"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <a class="block text-center no-underline text-on-primary py-2 px-2 font-normal cursor-pointer hover:font-bold" v-on:click="open"><i class="fa-solid fa-magnifying-glass"></i></a>
     <teleport to="body">
         <div v-if="modalOpen" class="fixed top-0 right-0 bottom-0 left-0 bg-black/70 flex items-center flex-col content-center" @click.self="modalOpen = false">
             <div class="md:mt-36 mt-10">
@@ -18,15 +18,15 @@
 </script>
 
 <script type="text/x-template" id="search-panel">
-    <div class="flex flex-col items-center border border-secondary-dark md:w-[700px] w-80 rounded bg-secondary-light text-secondary-dark mx-auto">
-        <div class="flex items-center justify-center m-4">
-            <div><i class="fa-solid fa-magnifying-glass text-3xl mr-2"></i></div>
-            <input type="text" v-on:input="handleInput" v-on:keyup.enter="handleInput" class="border border-secondary-dark
-            text-sm rounded-lg focus:ring-secondary-light focus:border-secondary-light block md:w-96 w-56 p-2.5" placeholder="Search this blog" required>
+    <div class="flex flex-col items-center border border-secondary-dark md:w-[700px] w-80 md:w-[500px] rounded-lg bg-secondary-light text-secondary-dark mx-auto">
+        <div class="flex items-center w-full border-b border-secondary-dark">
+            <div class="flex-none"><i class="fa-solid fa-magnifying-glass text-3xl mx-2"></i></div>
+            <input type="text" v-focus v-on:input="handleInput" v-on:keyup.enter="handleInput" class="grow bg-secondary-light text-on-secondary-light
+            text-sm rounded-lg focus:outline-none block p-2.5 w-full" placeholder="Search this blog" required>
         </div>
-        <div class="flex flex-col items-start mb-2 overflow-y-auto h-[440px] md:h-[540px]">
-            <div class="md:p-2 md:m-2 mb-4 px-4"  v-for="result in searchResults">
-                <a :href="result.href">[[result.title]]</a>
+        <div class="flex flex-col items-start mb-4 overflow-y-auto h-[440px] md:h-[540px] w-full">
+            <div class="pt-4 pb-2 px-6  border-b border-secondary-dark w-full hover:bg-secondary/60 hover:text-on-secondary"  v-for="result in searchResults">
+                <a class="block" :href="result.href">[[result.title]]</a>
             </div>
         </div>
     </div>
@@ -117,6 +117,12 @@
                         })
                     })
             }
+        }
+    })
+    // カスタムディレクティブ
+    app.directive('focus', {
+        mounted(el) {
+            el.focus()
         }
     })
     // app設定
