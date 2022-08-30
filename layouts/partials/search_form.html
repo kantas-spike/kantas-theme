@@ -21,7 +21,7 @@
     <div class="flex flex-col items-center border border-secondary-dark md:w-[700px] w-80 md:w-[500px] rounded-lg bg-secondary-light text-secondary-dark mx-auto">
         <div class="flex items-center w-full border-b border-secondary-dark">
             <div class="flex-none"><i class="fa-solid fa-magnifying-glass text-3xl mx-2"></i></div>
-            <input type="text" v-focus v-on:input="handleInput" v-on:keyup.enter="handleInput" class="grow bg-secondary-light text-on-secondary-light
+            <input type="text" v-focus v-on:input="handleInput" v-on:keyup.enter="handleInput" v-on:keyup.esc="closeWindow" class="grow bg-secondary-light text-on-secondary-light
             text-sm rounded-lg focus:outline-none block p-2.5 w-full" placeholder="Search this blog" required>
         </div>
         <div class="flex flex-col items-start mb-4 overflow-y-auto h-[440px] md:h-[540px] w-full">
@@ -52,7 +52,12 @@
                 const val = e.target.value
                 console.log(val)
                 this.$emit('update', val)
-            }, 500)
+            }, 500),
+            closeWindow: function(e) {
+                if (this.$parent) {
+                    this.$parent.modalOpen = false
+                }
+            }
         }
     }
 
