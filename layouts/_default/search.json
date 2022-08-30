@@ -1,6 +1,6 @@
 {
     "results": [
-    {{- range $index, $page := .Site.RegularPages }}
+    {{- range $index, $page := where .Site.RegularPages "Title" "!=" "SearchIndexData" }}
         {{- if $index -}},{{- end }}
     {
         "href": {{ .Permalink | jsonify }},
