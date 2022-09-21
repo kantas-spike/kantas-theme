@@ -3,10 +3,10 @@
 {{- $ytHost := cond $pc.PrivacyEnhanced  "www.youtube-nocookie.com" "www.youtube.com" -}}
 {{- $id := .Get "id" | default (.Get 0) -}}
 {{- $class := .Get "class" | default (.Get 1) -}}
-{{- $title := .Get "title" | default "YouTube Playlist" }}
+{{- $title := .Get "title" | default "YouTube Video" }}
 <div {{ with $class }}class="{{ . }}"{{ else }}class="max-w-[560px]"{{ end }}>
     <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-        <iframe src="https://{{ $ytHost }}/embed/videoseries?list={{ $id }}"  title="{{ $title }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+        <iframe src="https://{{ $ytHost }}/embed/{{ $id }}{{ with .Get "autoplay" }}{{ if eq . "true" }}?autoplay=1{{ end }}{{ end }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="{{ $title }}"></iframe>
+      </div>
 </div>
 {{ end -}}
