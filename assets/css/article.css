@@ -40,6 +40,10 @@
         }
     }
 
+    .chroma {
+        @apply overflow-auto;
+    }
+
     hr {
         @apply my-8 border-primary-dark;
     }
