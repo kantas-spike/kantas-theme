@@ -1,5 +1,11 @@
 <head>
-    <title>kanta's spike</title>
+    <title>
+        {{- if .Title }}
+        {{ .Title }} | {{ .Site.Title }}
+        {{- else }}
+        {{ .Site.Title }}
+        {{- end }}
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{- $css := resources.Get "css/theme.css" -}}
     {{- if hugo.IsProduction }}
