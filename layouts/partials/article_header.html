@@ -1,6 +1,8 @@
 {{ $icon_name := "fa-file-lines" }}
 {{ if eq .CurrentSection.Section "til" }}
 {{ $icon_name = "fa-note-sticky" }}
+{{ else if eq .CurrentSection.Section "dialogue" }}
+{{ $icon_name = "fa-comments" }}
 {{ end }}
 <div class="mb-4">
     <h3 class="border-b-2 border-primary text-primary-dark text-xl font-bold"><i class="fa-solid {{ $icon_name }}"></i> <a href="{{ .Permalink }}">{{ .Title }}</a></h3>

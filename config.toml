@@ -18,6 +18,12 @@
   weight = 32
 
 [[menu.main]]
+  identifier = 'Dialogue'
+  title = 'Dialogue'
+  url = '/dialogue'
+  weight = 33
+
+[[menu.main]]
     identifier = 'MyTools'
     title = 'My Tools'
     url = '/mytools'
@@ -39,6 +45,7 @@
   maxArticles = 6
   maxMyTools = 6
   maxIHC = 3
+  maxDialogue = 6
 
 [params.list]
   paginate = 6
