@@ -16,6 +16,19 @@
         {{ if .Page.Store.Get "hasMathJax" }}
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        {{ if or (.Page.Store.Get "useMathJax") .Page.Params.useMathJax  }}
+        <script>
+            MathJax = {
+              chtml: {
+                matchFontHeight: false
+              },
+              tex: {
+                inlineMath: [['$', '$']]
+              }
+            };
+        </script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+        {{ end }}
         {{ end }}
         {{- partial "search_form.html" . -}}
     </body>

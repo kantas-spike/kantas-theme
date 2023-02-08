@@ -61,4 +61,8 @@
             }
         }
     }
+
+    .MathJax svg {
+        display: inline;
+    }
 }
