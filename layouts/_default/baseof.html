@@ -13,9 +13,6 @@
             mermaid.initialize({ startOnLoad: true});
         </script>
         {{ end }}
-        {{ if .Page.Store.Get "hasMathJax" }}
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         {{ if or (.Page.Store.Get "useMathJax") .Page.Params.useMathJax  }}
         <script>
             MathJax = {
@@ -29,6 +26,8 @@
         </script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
         {{ end }}
+        {{ if .Page.Store.Get "usePlotly" }}
+        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
         {{ end }}
         {{- partial "search_form.html" . -}}
     </body>

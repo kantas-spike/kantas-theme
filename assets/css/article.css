@@ -65,4 +65,8 @@
     .MathJax svg {
         display: inline;
     }
+
+    .plotly {
+        @apply my-4;
+    }
 }
