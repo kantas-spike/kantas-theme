@@ -26,9 +26,6 @@
         </script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
         {{ end }}
-        {{ if .Page.Store.Get "usePlotly" }}
-        <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
-        {{ end }}
         {{- partial "search_form.html" . -}}
     </body>
 </html>

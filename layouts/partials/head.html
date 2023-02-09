@@ -19,4 +19,7 @@
     {{- $syntaxCss := resources.Get "css/syntax.css" | resources.Fingerprint -}}
     <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}">
     {{- partial "favicon.html" . -}}
+    {{ if .Page.Params.usePlotly }}
+    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+    {{ end }}
 </head>
