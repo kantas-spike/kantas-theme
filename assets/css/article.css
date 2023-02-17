@@ -48,6 +48,16 @@
         @apply my-8 border-primary-dark;
     }
 
+    .footnotes {
+        ol > li > p {
+            @apply m-0 mb-0.5;
+        }
+
+        .footnote-backref {
+            @apply no-underline;
+        }
+    }
+
     &, .rawhtml {
         table {
             @apply border-collapse border-spacing-2 border border-primary-light;
