@@ -1,9 +1,9 @@
 <footer class="bg-primary-dark text-center text-on-primary-dark fixed bottom-0 w-full h-8">
     <div class="container mx-auto grid grid-cols-3">
-        <div class="col-start-2">
-            <div class="text-sm pt-2">{{ .Site.Copyright }}</div>
+        <div class="col-start-1 col-span-2 ml-2 md:ml-0 md:col-start-2 md:col-span-1">
+            <div class="text-left md:text-center text-sm pt-2">{{ .Site.Copyright }}</div>
         </div>
-        <div class="flex justify-end gap-2 mr-2">
+        <div class="col-start-3 flex justify-end gap-2 mr-2">
             {{ if .Site.Data.socialmedia.accounts }}
                 {{ range .Site.Data.socialmedia.accounts }}
             <a title="{{ .name }}" class="text-2xl" href="{{ .url }}"><i class="{{ .icon }}"></i></a>
