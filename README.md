@@ -79,7 +79,6 @@ hugo new -k undraft ihc/_index.md
 [データファイル](#データファイル)に従い、以下のファイルを作成してください。
 
 - data/socialmedia.json
-- data/projects.json
 
 #### シンタックスハイライトの設定
 
