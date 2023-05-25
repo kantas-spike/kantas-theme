@@ -103,12 +103,11 @@ npm install
 
 ## データファイル
 
-本テーマは、2つのデータファイルを利用します。
+本テーマは、1つのデータファイルを利用します。
 
 |データファイルパス| 説明 |
 |:---|:---|
 |`${hugoのサイト}/data/socialmedia.json`| フッタに表示する連絡先を定義します。 |
-|`${hugoのサイト}/data/projects.json`| `My Tools`および`IHC`のページに表示するプロジェクトの情報を表示します。 |
 
 各データファイルの定義方法を説明します。
 
@@ -146,77 +145,45 @@ npm install
 | - | icon | ソーシャルメディアのアイコン。[Font Awesome](https://fontawesome.com/icons/0?s=solid)のアイコン名を使用可能。|
 | - | url | ソーシャルメディア アカウントのURL|
 
-### projects.json
+## `mytools`および`ihc`セクションのページ
 
-`My Tools`および`IHC`のページに表示するプロジェクト(GitHubのリポジトリ)の情報を定義したJSONファイルです。
+`mytools`および`ihc`セクションのページは、Front Matterのみで構成されます。
+そして、Front Matterの`repo`項目にプロジェクト(GitHubのリポジトリ)の情報を設定します。
 
-[データファイルの例](#データファイルの例)にあるようにファイル形式は、少し複雑です。
-
-しかし、情報収集ツールである[kantas-spike/repo-info.py](https://github.com/kantas-spike/repo-info.py)により生成することを前提にしています。
-
-ツールの設定ファイルに`name = "mytools"`と`name = "IHC"`の2つ分の[[repo-info.targets]]`を必ず定義してからツールを実行してください。
-
-~~~toml
-[[repo-info.targets]]
-name = "mytools"
-repos = ["repo1", "repo2", "repo3"]
-
-[[repo-info.targets]]
-name = "IHC"
-repos = ["repo4"]
-~~~
-
-ツールの使い方、設定方法の詳細は、[kantas-spike/repo-info.py](https://github.com/kantas-spike/repo-info.py)を参照ください。
-
-
-### データファイルの例
-
-~~~json
+~~~markdown
 {
-    "mytools": [
-        {
-            "name": "slide2video.py",
-            "full_name": "kantas-spike/slide2video.py",
-            "html_url": "https://github.com/kantas-spike/slide2video.py",
-            "description": "Blenderを利用して、スライド資料と、その資料用の音声データから動画編集ファイルを作成するツールです。",
-            "size": 20,
-            "pushed_at": "2022-07-11T21:09:05Z",
-            "project_type": "mytools",
-            "langs": [
-                "Python",
-                "Shell",
-                "Makefile"
-            ],
-            "merged": []
-        },
-        // ..略..
-    ],
-    "IHC": [
-        {
-            "name": "Pong-Game-with-Pygame",
-            "full_name": "kantas-spike/Pong-Game-with-Pygame",
-            "html_url": "https://github.com/kantas-spike/Pong-Game-with-Pygame",
-            "description": "A simple Pong game with Pygame",
-            "size": 23,
-            "pushed_at": "2022-07-05T18:45:27Z",
-            "project_type": "IHC",
-            "langs": [
-                "Python"
-            ],
-            "merged": [
-                {
-                    "html_url": "https://github.com/kantas-spike/Pong-Game-with-Pygame/pull/17",
-                    "title": "ドキュメント修正 フォント設定についての記述を追加",
-                    "state": "closed",
-                    "body": null,
-                    "created_at": "2022-07-03T18:15:38Z",
-                    "merged_at": "2022-07-03T18:15:51Z",
-                    "closed_at": "2022-07-03T18:15:51Z",
-                    "user": "kantas-spike"
-                },
-                // ..略..
-            ]
-        }
-    ]
+    "title": "repo-info.py",
+    "date": "2023-02-18T01:35:09Z",
+    "draft": false,
+    "repo": {
+        "name": "repo-info.py",
+        "full_name": "kantas-spike/repo-info.py",
+        "html_url": "https://github.com/kantas-spike/repo-info.py",
+        "description": "GitHub REST API\u3092\u4f7f\u3063\u3066\u3001\u8a2d\u5b9a\u30d5\u30a1\u30a4\u30eb\u306b\u5b9a\u7fa9\u3057\u305f\u30ea\u30dd\u30b8\u30c8\u30ea\u306e\u60c5\u5831\u3092\u53d6\u5f97\u3057\u3001`JSON`\u5f62\u5f0f\u3067\u51fa\u529b\u3059\u308b\u30c4\u30fc\u30eb\u3067\u3059\u3002",
+        "size": 11,
+        "pushed_at": "2023-02-18T01:35:09Z",
+        "project_type": "mytools",
+        "langs": [
+            "Python",
+            "Makefile",
+            "Shell"
+        ],
+        "merged": [
+            {
+                "html_url": "https://github.com/kantas-spike/repo-info.py/pull/2",
+                "title": "Feat changing repoinfo from json to indivisual files (fix: #1)",
+                "state": "closed",
+                "body": null,
+                "created_at": "2023-02-02T06:13:23Z",
+                "merged_at": "2023-02-02T06:13:31Z",
+                "closed_at": "2023-02-02T06:13:31Z",
+                "user": "kantas-spike"
+            }
+        ]
+    }
 }
 ~~~
+
+これらのページは、情報収集ツールである[kantas-spike/repo-info.py](https://github.com/kantas-spike/repo-info.py)により生成することを前提にしています。
+
+ツールの使い方、設定方法の詳細は、[kantas-spike/repo-info.py](https://github.com/kantas-spike/repo-info.py)を参照ください。
