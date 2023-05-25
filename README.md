@@ -45,7 +45,7 @@ theme = "kantas"
 また、本テーマは、`PostCSS`を利用します。
 [PostCSS | Hugo](https://gohugo.io/hugo-pipes/postcss/)にあるように、サイト側に`postcss-cli`が必要になります。
 
-さらに、[tailwindcss](https://tailwindcss.com/)を使用します。そのため、テーマ側に、`postcss`や`tailwindcss`などの各種パッケージのインストールが必要になります。
+さらに、[tailwindcss](https://tailwindcss.com/)を使用します。そのため、テーマ側に、`postcss`や`tailwindcss`などの各種パッケージのインストールが必要になります。(ページ更新にあわせてスタイルが更新されるようにするため、[TailwindCSS用の`cache buster`の設定](#tailwindcss用のcache-busterの設定)も参照してください。)
 
 セットアップ手順に説明します。
 
@@ -187,3 +187,41 @@ npm install
 これらのページは、情報収集ツールである[kantas-spike/repo-info.py](https://github.com/kantas-spike/repo-info.py)により生成することを前提にしています。
 
 ツールの使い方、設定方法の詳細は、[kantas-spike/repo-info.py](https://github.com/kantas-spike/repo-info.py)を参照ください。
+
+## TailwindCSS用の`cache buster`の設定
+
+本テーマは、[tailwindcss](https://tailwindcss.com/)を利用しています。
+数ある[tailwindcss](https://tailwindcss.com/)のクラスのうち、サイトで利用しているクラスだけを、`assets/css/theme.css`に保存するように設定されています。
+
+しかし、`hugo server`を使って、プレビューしながらサイトのデザインを修正する場合、`assets/css/theme.css`が`Hugo`にキャッシュされるため、サイトに新たな[tailwindcss](https://tailwindcss.com/)のクラスを追加しても、プレビューに反映されません。
+
+その対策として、これまでは、[resources.ExecuteAsTemplateを使ってtheme.cssのファイル名を毎回変更する方法](https://kantas-spike.github.io/portfolio/til/2022/07/13-hugo-with-tailwindcss/#%E6%96%B9%E6%B3%952-hugo%E3%81%AEpostcss%E6%A9%9F%E8%83%BD%E3%82%92%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B)を採用していました。
+
+ですが素晴らしいことに、[Release v0.112.0 · gohugoio/hugo](https://github.com/gohugoio/hugo/releases/tag/v0.112.0)がリリースされ、TailwindCSS用に`new cache buster`の設定が追加されました。
+
+これにより、`resources.ExecuteAsTemplate`を使ったトリッキーな方法を取らなくても、`theme.css`のキャッシュを管理できるようになりました。
+
+`new cache buster`の設定は以下になります。
+
+テーマを利用するHugoのサイト設定ファイル(hugo.toml or config.toml)で、`new cache buster`設定を追加してください。(参考: [bep/hugo-starter-tailwind-basic: A basic and simple to set up Hugo with TailwindCSS starter project.](https://github.com/bep/hugo-starter-tailwind-basic))
+
+~~~toml
+# サイト設定ファイル(hugo.toml or config.toml)
+
+# ..略..
+[module]
+  [[module.mounts]]
+    # hugo_stats.jsonをmountし、Hugoの監視対象に
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"
+
+[build]
+  writeStats = true # hugo_stats.jsonの出力を有効に
+  [[build.cachebusters]]
+    # hugo_stats.jsonに変更があれば、theme.cssを更新する
+    source = "assets/watching/hugo_stats\\.json"
+    target = "theme\\.css"
+
+# ..略..
+~~~
+
