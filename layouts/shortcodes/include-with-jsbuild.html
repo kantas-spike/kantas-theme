@@ -1,0 +1,11 @@
+{{- $jsFile := .Get "jsFile" -}}
+
+{{ $mode := `"production"`}}
+{{ if $.Site.IsServer }}
+{{ $mode = `"development"` }}
+{{ end }}
+{{ $defines := dict "process.env.NODE_ENV" $mode }}
+
+{{ $opts := dict "defines" $defines }}
+{{ $built := resources.Get $jsFile | js.Build $opts }}
+<script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
