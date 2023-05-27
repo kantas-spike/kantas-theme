@@ -3,7 +3,7 @@ const theme_dir = path.basename(__dirname)
 
 const colors = require('tailwindcss/colors')
 module.exports = {
-  content: [`./hugo_stats.json`, `./themes/${theme_dir}/assets/**/*.{js,css}`, `./themes/${theme_dir}/layouts/partials/search_form.html`],
+  content: [`./hugo_stats.json`, `./themes/${theme_dir}/assets/**/*.{js,jsx,css}`, `./themes/${theme_dir}/layouts/partials/search_form.html`],
   theme: {
     extend: {
       colors: {
