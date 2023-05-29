@@ -1,0 +1,8 @@
+<div class="mt-6">
+    <div class="border-t-2 border-primary-dark px-2 pt-2 text-right">
+        <span class="text-sm">作成日: {{ .Date | time.Format "2006/01/02" }}</span>
+        {{- if ne .Date .Lastmod -}}
+        <span class="text-sm pl-2">更新日: {{ .Lastmod | time.Format "2006/01/02" }}</span>
+        {{- end -}}
+    </div>
+</div>
