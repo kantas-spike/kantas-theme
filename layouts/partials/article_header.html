@@ -15,7 +15,11 @@
             </ul>
         </div>
         <div>
+            {{ if eq .Date .Lastmod}}
             <div class="text-right text-sm font-bold">{{ .Date | time.Format "2006/01/02" }}</div>
+            {{ else }}
+            <div class="text-right text-sm font-bold">{{ .Lastmod | time.Format "2006/01/02" }} <span class="text-xs text-red-600 font-thin">Updated</span></div>
+            {{ end }}
         </div>
     </div>
 </div>
