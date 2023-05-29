@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 
 function MyButton() {
     return (
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4">
+        <button className="hover:bg-blue-500 bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 outline-none shadow-lg active:scale-95 transition-transform">
         I'm a button
         </button>
     );
