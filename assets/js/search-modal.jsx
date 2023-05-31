@@ -94,7 +94,7 @@ export default function SearchModal({show, close}) {
         })
         return (
             <div id="modal-overlay" onClick={close} className='fixed top-0 left-0 w-full h-full bg-black/70 flex flex-col justify-start items-center z-50'>
-                <div onClick={(e) => e.stopPropagation() } className='flex flex-col items-center border border-primary-dark mt-4 md:mt-12 md:w-[700px] w-80 md:w-[500px] rounded-lg bg-primary-light text-primary-dark mx-auto'>
+                <div onClick={(e) => e.stopPropagation() } className='flex flex-col items-center border border-primary-dark mt-4 md:mt-12 w-72 md:w-[500px] rounded-lg bg-primary-light text-primary-dark mx-auto'>
                     <div className="flex items-center w-full border-b border-primary-dark">
                         <div className="flex-none"><i className="fa-solid fa-magnifying-glass text-3xl mx-2"></i></div>
                         <input type="text" ref={inputRef} onInput={handleInput} onKeyDown={handleKeydown} className="grow bg-primary-light text-on-primary-light
