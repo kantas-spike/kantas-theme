@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef} from 'react'
 import { createRoot } from 'react-dom/client'
 import SearchModal from 'js/search-modal'
 
-export default function MyApp() {
+export default function MySearchForm() {
     const [show, setShow] = useState(false)
     const openModal = () => {
         setShow(true)
@@ -23,4 +23,4 @@ export default function MyApp() {
 
 const container = document.getElementById('search_menu')
 const root = createRoot(container)
-root.render(<MyApp />)
+root.render(<MySearchForm />)
