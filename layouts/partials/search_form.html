@@ -1,2 +1,11 @@
-{{- $built := resources.Get "js/search-form.jsx" | js.Build -}}
+{{ $mode := `"production"`}}
+{{ $minify := true }}
+{{ if $.Site.IsServer }}
+{{ $mode = `"development"` }}
+{{ $minify = false }}
+{{ end }}
+{{ $defines := dict "process.env.NODE_ENV" $mode}}
+
+{{ $opts := dict "defines" $defines "minify" $minify }}
+{{- $built := resources.Get "js/search-form.jsx" | js.Build $defines -}}
 <script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
