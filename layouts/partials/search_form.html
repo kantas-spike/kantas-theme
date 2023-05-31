@@ -7,5 +7,5 @@
 {{ $defines := dict "process.env.NODE_ENV" $mode}}
 
 {{ $opts := dict "defines" $defines "minify" $minify }}
-{{- $built := resources.Get "js/search-form.jsx" | js.Build $defines -}}
+{{- $built := resources.Get "js/search-form.jsx" | js.Build $opts -}}
 <script type="text/javascript" src="{{ $built.RelPermalink }}" defer></script>
