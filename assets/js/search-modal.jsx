@@ -1,11 +1,24 @@
-import React, { useState, useEffect, useRef} from 'react'
+import React, { useState, useEffect, useRef, useCallback} from 'react'
 import { createRoot } from 'react-dom/client'
 import axios from 'axios'
 const lunr = require("lunr")
 require("lunr-languages/lunr.stemmer.support")(lunr)
 require("lunr-languages/tinyseg")(lunr)
 require("lunr-languages/lunr.ja")(lunr)
-const _ = require("lodash")
+
+function debounce(fn, delay) {
+    let timer
+    const debouncd = (e) => {
+        if (timer) {
+            // console.log("clear timer", timer)
+            clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+            fn(e)
+        }, delay)
+    }
+    return debouncd
+}
 
 export default function SearchModal({show, close}) {
 
@@ -31,10 +44,9 @@ export default function SearchModal({show, close}) {
         }
     }
 
-    const handleInput =  _.debounce((e) => {
-        const val = e.target.value
-        keywordUpdated(val)
-    }, 500)
+    const handleInput = debounce((e) => {
+            keywordUpdated(e.target.value)
+        }, 900)
 
     const handleKeydown = (e) => {
         // console.log("keyCode:", e.keyCode)
