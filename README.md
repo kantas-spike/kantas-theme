@@ -54,11 +54,12 @@ theme = "kantas"
 #### パッケージのインストール
 
 `Hugo`のサイトのディレクトリで以下を実行します。
+([hugo mod npm pack](https://gohugo.io/commands/hugo_mod_npm_pack/)を使って、テーマで利用しているパッケージをサイトの`packge.json`にまとめます。)
 
 ~~~shell
 cd ${hugoのサイト}
-npm init -f
-npm install postcss-cli
+hugo mod npm pack -t kantas
+npm install
 ~~~
 
 #### セクションの作成
