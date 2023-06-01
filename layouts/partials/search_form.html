@@ -8,4 +8,4 @@
 
 {{ $opts := dict "defines" $defines "minify" $minify }}
 {{- $built := resources.Get "js/search-form.jsx" | js.Build $opts | resources.Fingerprint "sha512" -}}
-<script type="text/javascript" src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}"></script>
+<script defer type="text/javascript" src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}"></script>
