@@ -1,0 +1,38 @@
+{
+  "name": "kantas-theme",
+  "version": "1.0.0",
+  "description": "Hugo theme for programming learner portfolio",
+  "main": "''",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kantas-spike/kantas-theme.git"
+  },
+  "keywords": [
+    "hugo",
+    "theme"
+  ],
+  "author": "kanta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kantas-spike/kantas-theme/issues"
+  },
+  "homepage": "https://github.com/kantas-spike/kantas-theme#readme",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "lunr": "^2.3.9",
+    "lunr-languages": "^1.12.0",
+    "postcss-cli": "^10.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "postcss-import": "^14.1.0",
+    "postcss-nested": "^5.0.6",
+    "tailwindcss": "^3.1.6"
+  }
+}
