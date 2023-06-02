@@ -15,11 +15,19 @@
 }
 
 .normal_ul {
-    @apply list-outside list-disc ml-6 mt-2 mb-4;
+    @apply list-outside list-disc ml-6 mt-6 mb-8 leading-6;
+
+    li {
+        @apply mb-1.5;
+    }
 }
 
 .normal_ol {
-    @apply list-outside list-decimal ml-6 mt-2 mb-4;
+    @apply list-outside list-decimal ml-6 mt-6 mb-8 leading-6;
+
+    li {
+        @apply mb-1.5;
+    }
 }
 
 .pagination {

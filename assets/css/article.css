@@ -20,8 +20,12 @@
         @apply normal_ol;
     }
 
+    li > ul, ol {
+        @apply mt-2 mb-4;
+    }
+
     p {
-        @apply my-4;
+        @apply my-4 leading-7;
     }
 
     a {
