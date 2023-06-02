@@ -1,15 +1,15 @@
 /* HTMLに変換された markdown 文書用のスタイル */
 .article {
     h3 {
-        @apply border-b-2 border-gray-600  text-lg font-bold mt-6 mb-3 ;
+        @apply border-b-2 border-gray-600  text-lg font-bold mt-6 mb-3 tracking-wider;
     }
 
     h4 {
-        @apply border-b border-dotted border-gray-600 font-bold mt-6 mb-3 ;
+        @apply border-b-2 border-dotted border-gray-600 font-bold mt-6 mb-3 tracking-wider;
     }
 
     h5 {
-        @apply border-b border-l-8 border-gray-300 pl-2 mt-6 mb-3 ;
+        @apply border-b border-l-8 border-gray-300 pl-2 mt-6 mb-3 tracking-wider;
     }
 
     ul {
@@ -25,7 +25,7 @@
     }
 
     p {
-        @apply my-4 leading-7;
+        @apply my-4 leading-7 tracking-wide;
     }
 
     li {

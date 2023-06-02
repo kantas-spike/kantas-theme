@@ -2,7 +2,7 @@
     <h3 class="page_h3 my-4 mx-4"><i class="fa-solid fa-tags"></i> {{ .Title }}</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-2 mt-6 my-4 mx-4">
     {{ range .Data.Terms.Alphabetical }}
-        <div class="tag mx-4">
+        <div class="tag mx-4 mb-3">
             <a class="tag_link" href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a><span>({{ .Count }})</span>
         </div>
     {{ end }}
