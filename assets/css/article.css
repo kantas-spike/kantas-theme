@@ -28,6 +28,10 @@
         @apply my-4 leading-7;
     }
 
+    li {
+        @apply mb-1.5 leading-7 tracking-wide;
+    }
+
     a {
         @apply tag_link;
     }
