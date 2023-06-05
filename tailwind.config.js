@@ -1,11 +1,16 @@
 const path = require('path')
 const theme_dir = path.basename(__dirname)
 
+const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+
 module.exports = {
   content: [`./hugo_stats.json`, `./themes/${theme_dir}/assets/**/*.{js,jsx,css}`, './assets/**/*.{js,jsx,css}'],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Noto Sans JP', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         primary: {
           DEFAULT: '#32569a',
