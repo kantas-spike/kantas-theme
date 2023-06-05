@@ -1,3 +1,7 @@
+.text_block {
+    @apply leading-7 tracking-wider max-w-[50em] break-all;
+}
+
 .tag_link {
     @apply text-primary underline underline-offset-4 decoration-dotted hover:font-bold;
 }

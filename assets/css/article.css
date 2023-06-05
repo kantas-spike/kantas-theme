@@ -25,11 +25,15 @@
     }
 
     p {
-        @apply my-4 leading-7 tracking-wide;
+        @apply mt-4 mb-6 text_block;
     }
 
-    li {
-        @apply mb-1.5 leading-7 tracking-wide;
+    li > p {
+        @apply mb-4 text_block;
+    }
+
+    li:not(:has(> p)) {
+        @apply mb-4 text_block;
     }
 
     a {
@@ -41,7 +45,7 @@
     }
 
     .highlight {
-        @apply mx-2 my-4;
+        @apply mx-2 my-4 max-w-[80em];
 
         & > pre {
             @apply py-2 px-3;
