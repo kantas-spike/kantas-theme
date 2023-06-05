@@ -28,6 +28,10 @@
         @apply mt-4 mb-6 text_block;
     }
 
+    li > p {
+        @apply mb-4 text_block;
+    }
+
     li:not(:has(> p)) {
         @apply mb-4 text_block;
     }
