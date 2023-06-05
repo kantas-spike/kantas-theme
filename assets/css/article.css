@@ -25,11 +25,11 @@
     }
 
     p {
-        @apply my-4 leading-7 tracking-wide;
+        @apply mt-4 mb-6 text_block;
     }
 
-    li {
-        @apply mb-1.5 leading-7 tracking-wide;
+    li:not(:has(> p)) {
+        @apply text_block;
     }
 
     a {

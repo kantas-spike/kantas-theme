@@ -5,7 +5,7 @@
 
 <div class="area_border p-2 relative  px-4 pb-7">
     <h3 class="mb-4 text-lg"><a class="normal_link" href="{{ .html_url }}"><i class="fa-solid {{ $icon_name }}"></i> {{ .full_name }}</a></h3>
-    <div class="mx-2 mb-4">
+    <div class="mx-2 mb-4 text_block">
         {{ .description }}
     </div>
     {{ if eq .project_type "ihc" }}
@@ -13,7 +13,7 @@
         <h4 class="font-bold"><i class="fa-solid fa-code-merge"></i> 最近のイテレーション <span class="pl-1 font-normal">(<a class="tag_link" href="{{ .html_url }}/pulls?q=is%3Apr+is%3Aclosed">全マージ済 PR</a>)</span></h4>
         <ul class="normal_ul">
         {{ range first 10 .merged }}
-            <li><a class="tag_link" href="{{ .html_url }}">{{ .title }}</a></li>
+            <li class="text_block mb-4"><a class="tag_link" href="{{ .html_url }}">{{ .title }}</a></li>
         {{ end }}
         </ul>
     </div>
