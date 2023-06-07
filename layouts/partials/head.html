@@ -7,10 +7,15 @@
         {{- end }}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{- $fonts_css := resources.Get "css/fonts.css" | resources.Fingerprint -}}
+    <link rel="stylesheet" href="{{ $fonts_css.RelPermalink }}">
+
     {{- $css := resources.Get "css/theme.css" -}}
     {{- $css := $css | resources.PostCSS -}}
     {{- if hugo.IsProduction }}
         {{- $css = $css | resources.Minify | resources.Fingerprint }}
+    {{- else -}}
+        {{- $css = $css | resources.Fingerprint }}
     {{- end }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
