@@ -7,6 +7,9 @@
         {{- end }}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{- $fonts_css := resources.Get "css/fonts.css" | resources.Fingerprint -}}
+    <link rel="stylesheet" href="{{ $fonts_css.RelPermalink }}">
+
     {{- $css := resources.Get "css/theme.css" -}}
     {{- $css := $css | resources.PostCSS -}}
     {{- if hugo.IsProduction }}
