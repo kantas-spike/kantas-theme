@@ -4,7 +4,8 @@
         {{- if $index -}},{{- end }}
     {
         "href": {{ .Permalink | jsonify }},
-        "title": {{ .Title | jsonify }}
+        "title": {{ .Title | jsonify }},
+        "tags": "{{ with .Params.tags -}}{{ delimit . " "}}{{- end }}"
     }
     {{- end }}
     ]
