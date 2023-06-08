@@ -24,16 +24,16 @@
         @apply mt-2 mb-4;
     }
 
-    p {
+    & > p {
         @apply mt-4 mb-6 text_block;
     }
 
     li > p {
-        @apply mb-4 text_block;
+        @apply mb-2 text_block;
     }
 
     li:not(:has(> p)) {
-        @apply mb-4 text_block;
+        @apply mb-2 text_block;
     }
 
     a {
@@ -62,7 +62,7 @@
 
     .footnotes {
         ol > li > p {
-            @apply m-0 mb-0.5;
+            @apply m-0 mb-2;
         }
 
         .footnote-backref {
