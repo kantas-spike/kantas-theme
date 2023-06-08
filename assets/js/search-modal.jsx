@@ -66,8 +66,9 @@ export default function SearchModal({show, close}) {
                 searchInfo.searchData = res.data
                 searchInfo.searchIndex = lunr(function() {
                     this.ref('href')
-                    this.field('title')
                     this.use(lunr.ja)
+                    this.field('title')
+                    this.field('tags')
                     searchInfo.searchData.results.forEach(e => {
                         this.add(e);
                     })
