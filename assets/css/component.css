@@ -1,5 +1,5 @@
 .text_block {
-    @apply leading-7 tracking-wider max-w-[50em] break-all;
+    @apply leading-7 tracking-wider max-w-[50em] break-normal;
 }
 
 .tag_link {
