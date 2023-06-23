@@ -2,7 +2,7 @@
 {{ partial "page_summary.html" . }}
 <h3 class="mx-4 mt-6 page_h3"><i class="fa-solid fa-square-pen"></i> 最近の学習記録</h3>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4">
-{{ $articleSections := slice "blog" "til" }}
+{{ $articleSections := slice "blog" "til" "memo"}}
 {{ with .Site.Params.articleSections }}
     {{ $articleSections = . }}
 {{ end }}

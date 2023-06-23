@@ -15,6 +15,12 @@
   identifier = 'TIL'
   title = 'TIL'
   url = '/til'
+  weight = 31
+
+[[menu.main]]
+  identifier = 'Memo'
+  title = 'Memo'
+  url = '/memo'
   weight = 32
 
 [[menu.main]]

@@ -1,5 +1,7 @@
 {{ $icon_name := "fa-file-lines" }}
 {{ if eq .CurrentSection.Section "til" }}
+{{ $icon_name = "fa-circle-info" }}
+{{ else if eq .CurrentSection.Section "memo" }}
 {{ $icon_name = "fa-note-sticky" }}
 {{ else if eq .CurrentSection.Section "dialogue" }}
 {{ $icon_name = "fa-comments" }}
