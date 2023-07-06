@@ -1,9 +1,9 @@
 {{ $icon_name := "fa-file-lines" }}
 {{ if eq .CurrentSection.Section "til" }}
 {{ $icon_name = "fa-circle-info" }}
-{{ else if eq .CurrentSection.Section "memo" }}
+{{ else if eq .CurrentSection.Section "notes" }}
 {{ $icon_name = "fa-note-sticky" }}
-{{ else if eq .CurrentSection.Section "dialogue" }}
+{{ else if eq .CurrentSection.Section "dialogues" }}
 {{ $icon_name = "fa-comments" }}
 {{ end }}
 <div class="mb-4">
