@@ -6,21 +6,15 @@
   weight = 10
 
 [[menu.main]]
-  identifier = 'Articles'
-  title = 'Articles'
-  url = '/articles'
-  weight = 30
+  identifier = 'Notes'
+  title = 'Notes'
+  url = '/notes'
+  weight = 31
 
 [[menu.main]]
   identifier = 'TIL'
   title = 'TIL'
   url = '/til'
-  weight = 31
-
-[[menu.main]]
-  identifier = 'Notes'
-  title = 'Notes'
-  url = '/notes'
   weight = 32
 
 [[menu.main]]
@@ -30,22 +24,29 @@
   weight = 33
 
 [[menu.main]]
+  identifier = 'Articles'
+  title = 'Articles'
+  url = '/articles'
+  weight = 34
+
+
+[[menu.main]]
     identifier = 'MyTools'
     title = 'My Tools'
     url = '/mytools'
-    weight = 35
+    weight = 40
 
 [[menu.main]]
   identifier = 'IHC'
   title = 'IHC'
   url = '/ihc'
-  weight = 40
+  weight = 45
 
 [[menu.main]]
   identifier = 'Tags'
   title = 'Tags'
   url = '/tags'
-  weight = 45
+  weight = 50
 
 [params.home]
   maxArticles = 6
