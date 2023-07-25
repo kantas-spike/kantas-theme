@@ -2,6 +2,10 @@
     @apply leading-7 tracking-wider max-w-[50em] break-normal;
 }
 
+.code_block {
+    @apply mx-2 my-4 max-w-[80em];
+}
+
 .tag_link {
     @apply text-primary underline underline-offset-4 decoration-dotted hover:font-bold;
 }

@@ -45,7 +45,7 @@
     }
 
     .highlight {
-        @apply mx-2 my-4 max-w-[80em];
+        @apply code_block;
 
         & > pre {
             @apply py-2 px-3;
