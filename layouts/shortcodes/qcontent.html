@@ -1,0 +1,15 @@
+{{- $q_source := .Get "source" -}}
+{{- $q_url := .Get "url" -}}
+
+<div class="mt-8 quote_content">
+    <div class="code_block">
+        {{.Inner | markdownify }}
+        <div class="text-right mt-2">
+            {{ if and $q_source $q_url }}
+            <a href="{{ $q_url }}">{{$q_source}}</a> から引用
+            {{ else if $q_source }}
+            {{ $q_source }} から引用
+            {{ end }}
+        </div>
+    </div>
+</div>
