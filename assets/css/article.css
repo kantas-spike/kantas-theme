@@ -91,4 +91,10 @@
     .plotly {
         @apply my-4;
     }
+
+    .quote_content {
+        img {
+            @apply max-w-full;
+        }
+    }
 }
