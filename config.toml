@@ -56,3 +56,7 @@
 
 [params.list]
   paginate = 6
+
+[params.articles]
+  maxHoursToShowNew = 72
+  maxHoursToShowUpdated = 240
