@@ -29,39 +29,75 @@
 
 ## インストール
 
-本テーマは、`git`の`submodule`としてインストールします。
+本テーマは、`hugo module`としてインストールします。
+
+そのため、以下を実行して、テーマを利用するHugoのサイトをモジュール利用可能にしてください。
 
 ~~~shell
 cd ${hugoのサイト}
-git submodule add https://github.com/kantas-spike/kantas-theme.git themes/kantas
+hugo mode init mysite
 ~~~
 
-そして、`${hugoのサイト}/config.toml`に以下の行を追加してテーマを有効化してください。
-
-~~~toml
-theme = "kantas"
-~~~~
-
-また、本テーマは、`PostCSS`を利用します。
-[PostCSS | Hugo](https://gohugo.io/hugo-pipes/postcss/)にあるように、サイト側に`postcss-cli`が必要になります。
-
-さらに、[tailwindcss](https://tailwindcss.com/)を使用します。そのため、テーマ側に、`postcss`や`tailwindcss`などの各種パッケージのインストールが必要になります。(ページ更新にあわせてスタイルが更新されるようにするため、[TailwindCSS用の`cache buster`の設定](#tailwindcss用のcache-busterの設定)も参照してください。)
-
-セットアップ手順に説明します。
-
-### サイト側セットアップ
-
-#### パッケージのインストール
-
-`Hugo`のサイトのディレクトリで以下を実行します。
-([hugo mod npm pack](https://gohugo.io/commands/hugo_mod_npm_pack/)を使って、テーマで利用しているパッケージをサイトの`packge.json`にまとめます。)
+さらに、Hugoのサイトでテーマのモジュールをダウンロードします。
 
 ~~~shell
-cd ${hugoのサイト}
-hugo mod npm pack -t kantas
+$ pwd
+${hugoのサイト}
+$ hugo module get github.com/kantas-spike/kantas-theme
+~~~
+
+そして、`${hugoのサイト}/config.toml`に以下の行を追加して、
+テーマのインポートと必要な設定を反映します。
+
+~~~toml
+[module]
+  # テーマのインポート
+  [[module.imports]]
+    path = 'github.com/kantas-spike/kantas-theme'
+  # テーマで使用するアセットの登録
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"
+
+# テーマで使用するtailwindcss用の設定
+[build]
+  writeStats = true
+  [[build.cachebusters]]
+    source = "assets/watching/hugo_stats\\.json"
+    target = "theme\\.css"
+  [[build.cachebusters]]
+    source = "assets/js/.*\\.js"
+    target = "theme\\.css"
+
+# テーマで使用するシンタックスハイライト用の設定
+[markup.highlight]
+  noClasses = false
+~~~~
+
+最後に、テーマに必要なパッケージをインストールします。
+
+以下を実行して、テーマで利用しているパッケージをサイト側で収集します。
+
+~~~shell
+hugo mod npm pack
+~~~
+
+そして、サイト側でパッケージをインストールします。
+
+~~~shell
 npm install
 ~~~
 
+あとは、動作確認です。以下を実行してサーバーを起動します。 そして、をブラウザで開いてサイトが表示されるか確認しましょう。
+
+~~~shell
+hugo server
+~~~
+
+## その他準備
 #### セクションの作成
 
 以下を実行し、セクションのインデックスページを作成してください。
