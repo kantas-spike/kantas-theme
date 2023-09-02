@@ -43,7 +43,7 @@ hugo mode init mysite
 ~~~shell
 $ pwd
 ${hugoのサイト}
-$ hugo module get github.com/kantas-spike/kantas-theme
+$ hugo mod get github.com/kantas-spike/kantas-theme
 ~~~
 
 そして、`${hugoのサイト}/config.toml`に以下の行を追加して、
@@ -51,9 +51,6 @@ $ hugo module get github.com/kantas-spike/kantas-theme
 
 ~~~toml
 [module]
-  # テーマのインポート
-  [[module.imports]]
-    path = 'github.com/kantas-spike/kantas-theme'
   # テーマで使用するアセットの登録
   [[module.mounts]]
     source = "assets"
@@ -61,6 +58,9 @@ $ hugo module get github.com/kantas-spike/kantas-theme
   [[module.mounts]]
     source = "hugo_stats.json"
     target = "assets/watching/hugo_stats.json"
+  # テーマのインポート
+  [[module.imports]]
+    path = 'github.com/kantas-spike/kantas-theme'
 
 # テーマで使用するtailwindcss用の設定
 [build]
