@@ -6,12 +6,6 @@
   weight = 10
 
 [[menu.main]]
-  identifier = 'Notes'
-  title = 'Notes'
-  url = '/notes'
-  weight = 31
-
-[[menu.main]]
   identifier = 'TIL'
   title = 'TIL'
   url = '/til'
