@@ -1,11 +1,11 @@
 const path = require('path')
-const theme_dir = path.basename(__dirname)
+const theme_dir = __dirname
 
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  content: [`./hugo_stats.json`, `./themes/${theme_dir}/assets/**/*.{js,jsx,css}`, './assets/**/*.{js,jsx,css}'],
+  content: [`./hugo_stats.json`, `${theme_dir}/assets/**/*.{js,jsx,css}`, './assets/**/*.{js,jsx,css}'],
   theme: {
     extend: {
       fontFamily: {
