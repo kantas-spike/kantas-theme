@@ -1,31 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    {{- partial "head.html" . -}}
-    <body class="bg-background text-primary-dark pb-4">
-        {{- partial "header.html" . -}}
-        <main id="content" class="container mx-auto bg-surface pt-4 pb-8">
-            {{- block "main" . }}{{- end }}
-        </main>
-        {{- partial "footer.html" . -}}
-        {{ if .Page.Store.Get "hasMermaid" }}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.3/mermaid.min.js" integrity="sha512-E/owfVh8/U1xwhvIT4HSI064DRc1Eo/xf7AYax84rt9gVqA8tc/JNH/lvTl1tuw9PUHQIMGUtObkjYkgRjFqAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script>
-            mermaid.initialize({ startOnLoad: true});
-        </script>
-        {{ end }}
-        {{ if or (.Page.Store.Get "useMathJax") .Page.Params.useMathJax  }}
-        <script>
-            MathJax = {
-              chtml: {
-                matchFontHeight: false
-              },
-              tex: {
-                inlineMath: [['$', '$']]
-              }
-            };
-        </script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-        {{ end }}
-        {{- partial "search_form.html" . -}}
-    </body>
+  {{- partial "head.html" . -}}
+  <body class="bg-background text-primary-dark pb-4">
+    {{- partial "header.html" . -}}
+    <main id="content" class="container mx-auto bg-surface pt-4 pb-8">
+      {{- block "main" . }}{{- end }}
+    </main>
+    {{- partial "footer.html" . -}} {{ if .Page.Store.Get "hasMermaid" }}
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+    {{ end }} {{ if or (.Page.Store.Get "useMathJax") .Page.Params.useMathJax }}
+    <script>
+      MathJax = {
+        chtml: {
+          matchFontHeight: false,
+        },
+        tex: {
+          inlineMath: [["$", "$"]],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+    ></script>
+    {{ end }} {{- partial "search_form.html" . -}}
+  </body>
 </html>
