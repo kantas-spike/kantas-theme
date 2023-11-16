@@ -6,3 +6,9 @@
 @import "component.css";
 
 @import "article.css";
+
+
+.emoji {
+  font-family: 'Noto Emoji', sans-serif;
+}
+
