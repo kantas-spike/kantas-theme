@@ -1,7 +1,5 @@
-<div class="area_border  px-4 py-3 mx-4  md:mx-10 pb-4">
-    {{ partial "article_header.html" . }}
-    <div class="article mx-2">
-        {{ .Content }}
-    </div>
-    {{ partial "article_footer.html" . }}
+<div class="area_border px-4 py-3 mx-4 md:mx-auto pb-4 max-w-[60rem]">
+  {{ partial "article_header.html" . }}
+  <div class="article mx-2">{{ .Content }}</div>
+  {{ partial "article_footer.html" . }}
 </div>

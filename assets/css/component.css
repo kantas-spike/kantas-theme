@@ -1,9 +1,9 @@
 .text_block {
-    @apply leading-7 tracking-wider max-w-[50em] break-normal;
+    @apply leading-7 tracking-wider max-w-[60em] break-normal;
 }
 
 .code_block {
-    @apply mx-2 my-4 max-w-[80em];
+    @apply mx-2 my-4 max-w-[60em];
 }
 
 .tag_link {
