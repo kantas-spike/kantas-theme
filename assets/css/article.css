@@ -97,4 +97,13 @@
             @apply max-w-full;
         }
     }
+
+    .quote {
+      code:not([data-lang]) {
+        @apply bg-[#ececf1]/20 font-mono px-0.5 mx-0.5;
+      }
+      code[data-lang] {
+        @apply  text-gray-800;
+      }
+    }
 }
