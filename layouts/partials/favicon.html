@@ -1,4 +1,9 @@
-<link rel="apple-touch-icon" sizes="180x180" href="/icon180.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icon32.png">
-<link rel="icon" type="image/svg+xml" href="/icon.svg">
-<link rel="manifest" href="/site.webmanifest">
+{{ with resources.GetMatch "icon180.png" }}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ .RelPermalink }}" />
+{{ end }} {{ with resources.GetMatch "icon32.png" }}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ .RelPermalink }}" />
+{{ end }} {{ with resources.GetMatch "icon.svg" }}
+<link rel="icon" type="image/svg+xml" href="{{ .RelPermalink }}" />
+{{ end }} {{ with resources.GetMatch "site.webmanifest" }}
+<link rel="manifest" href="{{ .RelPermalink }}" />
+{{ end }}
