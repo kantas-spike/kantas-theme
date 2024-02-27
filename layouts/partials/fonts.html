@@ -1,17 +1,12 @@
+{{ range resources.Match "fonts/*.woff2" }}
 <link
   rel="preload"
-  href="{{ .Site.BaseURL }}/fonts/NotoSansJP-Regular.woff2"
+  href="{{ .RelPermalink }}"
   as="font"
   type="font/woff2"
   crossorigin="anonymous"
 />
-<link
-  rel="preload"
-  href="{{ .Site.BaseURL }}/fonts/NotoSansJP-Bold.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin="anonymous"
-/>
+{{ end }}
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
