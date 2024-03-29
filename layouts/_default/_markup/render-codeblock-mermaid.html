@@ -1,4 +1,5 @@
-<div class="mermaid">
-    {{- .Inner | safeHTML }}
-</div>
+{{ $align := .Attributes.align }} {{ $class := "" }} {{ if eq $align "center" }}
+{{ $class = "flex justify-center" }} {{ else if eq $align "right" }} {{ $class =
+"flex justify-end" }} {{ end }}
+<div class="mermaid {{ $class }}">{{- .Inner | safeHTML }}</div>
 {{ .Page.Store.Set "hasMermaid" true }}
