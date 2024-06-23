@@ -1,4 +1,4 @@
-{{ define "main" }} {{ partial "page_summary.html" . }}
+{{ define "main" }} {{ partial "description.html" . }}
 <h3 class="mx-4 mt-6 page_h3">
   <i class="fa-solid fa-square-pen"></i> 最近の学習記録
 </h3>
@@ -20,7 +20,7 @@
   class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-3 mb-8 mx-4"
 >
   {{ range (first .Site.Params.home.maxDialogue (where .Site.RegularPages
-  "Section" "dialogues")) }} {{ partial "article_summary.html" . }} {{ end }}
+  "Section" "dialogues")) }} {{ partial "article/summary.html" . }} {{ end }}
 </div>
 
 <h3 class="mx-4 mt-6 page_h3">

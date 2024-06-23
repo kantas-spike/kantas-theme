@@ -3,7 +3,7 @@
 
 <section class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 my-4 mx-4">
     {{ range .Paginator.Pages }}
-        {{ partial "article_summary.html" . }}
+        {{ partial "article/summary.html" . }}
     {{ end }}
 </section>
 <div>
