@@ -1,0 +1,11 @@
+{{ define "main" }} {{ partial "description_with_title.html" . }}
+<h3 class="mt-6 page_h3 mx-auto max-w-[80rem]">
+  <i class="fa-solid fa-square-pen"></i> 記事一覧
+</h3>
+<div
+  class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-4 my-4 mx-auto max-w-[80rem]"
+>
+  {{ range sort (where .Site.RegularPages "Path" "like" (printf "^%s" .Path))
+  "Path" }} {{ partial "series/summary.html" . }} {{ end }}
+</div>
+{{ end }}

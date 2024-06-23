@@ -1,12 +1,12 @@
-{{ define "main" }}
-{{ partial "page_summary.html" . }}
+{{ define "main" }} {{ partial "description.html" . }}
 
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-6 my-4 mx-4">
-    {{ range (.Paginate (where .Site.RegularPages.ByLastmod.Reverse "Section" .CurrentSection.Section) .Site.Params.list.paginate).Pages }}
-        {{ partial "article_summary.html" . }}
-    {{ end }}
+<div
+  class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 mt-6 my-4 mx-4"
+>
+  {{ range (.Paginate (where (where .Site.Pages.ByLastmod.Reverse "Section"
+  .CurrentSection.Section) "Params.hidden_in_section" "ne" true)
+  .Site.Params.list.paginate).Pages }} {{ partial "item_summary.html" . }} {{
+  end }}
 </div>
-<div>
-    {{ template "_internal/pagination.html" . }}
-</div>
+<div>{{ template "_internal/pagination.html" . }}</div>
 {{ end }}
