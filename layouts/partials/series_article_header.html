@@ -1,0 +1,43 @@
+<div class="mb-4">
+  {{ if .Params.series_title }}
+  <h4 class="text-primary-dark text-xs font-bold tracking-wider mb-1">
+    <a href="{{ .Parent.Permalink }}">{{ .Params.series_title }}</a>
+  </h4>
+  {{ end }}
+  <h3
+    class="border-b-4 border-primary-dark text-primary-dark text-xl font-bold tracking-wider pl-[1em] -indent-[1ex]"
+  >
+    <i class="fa-solid fa-file-lines"></i>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+  </h3>
+  <div class="flex justify-between mt-1 mx-2">
+    <div>
+      <ul class="flex gap-2 justify-end">
+        {{ range (.GetTerms "tags") }}
+        <li>
+          <a class="tag_link text-sm" href="{{ .Permalink }}"
+            >#{{ .LinkTitle }}</a
+          >
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    <div>
+      {{ $diff := now.Sub .Lastmod }} {{ if eq .Date .Lastmod}}
+      <div class="text-right text-sm font-bold">
+        {{ .Date | time.Format "2006/01/02" }} {{ if lt $diff.Hours
+        .Site.Params.articles.maxHoursToShowNew }}
+        <span class="text-xs text-red-600 font-thin">New</span>
+        {{ end }}
+      </div>
+      {{ else }}
+      <div class="text-right text-sm font-bold">
+        {{ .Lastmod | time.Format "2006/01/02" }} {{ if lt $diff.Hours
+        .Site.Params.articles.maxHoursToShowUpdated }}
+        <span class="text-xs text-red-600 font-thin">Updated</span>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

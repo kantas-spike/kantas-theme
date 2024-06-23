@@ -1,0 +1,28 @@
+<div class="flex justify-between mt-6">
+  <div class="flex items-center">
+    {{ if .Params.prev_article }} {{ with .GetPage .Params.prev_article }}
+    <div class="text-lg">«</div>
+    <div class="text-left ml-2">
+      <div class="leading-none">
+        <span class="text-sm">Prev</span> <br />
+        <a class="tag_link text-sm p-0 m-0" href="{{.RelPermalink}}"
+          >{{ .Title }}</a
+        >
+      </div>
+    </div>
+    {{ end }} {{ end }}
+  </div>
+  <div class="flex items-center">
+    {{ if .Params.next_article }} {{ with .GetPage .Params.next_article }}
+    <div class="text-right mr-2">
+      <div class="leading-none">
+        <span class="text-sm">Next</span> <br />
+        <a class="tag_link text-sm p-0 m-0" href="{{.RelPermalink}}"
+          >{{ .Title }}</a
+        >
+      </div>
+    </div>
+    <div class="text-lg">»</div>
+    {{ end }} {{ end }}
+  </div>
+</div>
