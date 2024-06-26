@@ -1,29 +1,38 @@
 <head>
-    <title>
-        {{- if .Title }}
-        {{ .Title }} | {{ .Site.Title }}
-        {{- else }}
-        {{ .Site.Title }}
-        {{- end }}
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ partial "fonts.html" }}
-    {{- $fonts_css := resources.Get "css/fonts.css" | resources.Fingerprint -}}
-    <link rel="stylesheet" href="{{ $fonts_css.RelPermalink }}">
+  <title>
+    {{- if .Title }} {{ .Title }} | {{ .Site.Title }} {{- else }} {{ .Site.Title
+    }} {{- end }}
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {{ partial "fonts.html" }} {{- $fonts_css := resources.Get "css/fonts.css" |
+  resources.Fingerprint -}}
+  <link rel="stylesheet" href="{{ $fonts_css.RelPermalink }}" />
 
-    {{- $css := resources.Get "css/theme.css" -}}
-    {{- $css := $css | resources.PostCSS -}}
-    {{- if hugo.IsProduction }}
-        {{- $css = $css | resources.Minify | resources.Fingerprint }}
-    {{- else -}}
-        {{- $css = $css | resources.Fingerprint }}
-    {{- end }}
-    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    {{- $syntaxCss := resources.Get "css/syntax.css" | resources.Minify | resources.Fingerprint -}}
-    <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}">
-    {{- partial "favicon.html" . -}}
-    {{ if .Page.Params.usePlotly }}
-    <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
-    {{ end }}
+  {{ with (templates.Defer (dict "key" "global")) }} {{ $t := debug.Timer
+  "tailwindcss" }} {{- $css := resources.Get "css/theme.css" -}} {{- $css :=
+  $css | resources.PostCSS -}} {{- if hugo.IsProduction }} {{- $css = $css |
+  resources.Minify | resources.Fingerprint }}
+  <link
+    rel="stylesheet"
+    href="{{ $css.RelPermalink }}"
+    integrity="{{ .Data.Integrity }}"
+    crossorigin="anonymous"
+  />
+  {{- else -}} {{- $css = $css | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+  {{- end }} {{ $t.Stop }} {{ end }}
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  {{- $syntaxCss := resources.Get "css/syntax.css" | resources.Minify |
+  resources.Fingerprint -}}
+  <link rel="stylesheet" href="{{ $syntaxCss.RelPermalink }}" />
+  {{- partial "favicon.html" . -}} {{ if .Page.Params.usePlotly }}
+  <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
+  {{ end }}
 </head>
